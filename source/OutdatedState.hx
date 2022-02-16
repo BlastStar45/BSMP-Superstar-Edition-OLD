@@ -25,12 +25,12 @@ class OutdatedState extends MusicBeatState
 
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Sup bro, looks like you're running an   \n
-			outdated version of Psych Engine (" + MainMenuState.psychEngineVersion + "),\n
+			outdated version of BSMP (" + MainMenuState.BSMPversion + "),\n
 			please update to " + TitleState.updateVersion + "!\n
 			\n
-			Thank you for using the Engine!",
+			Thank you for using the Modpack!",
 			32);
-		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+		warnText.setFormat("Funkin", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
 	}

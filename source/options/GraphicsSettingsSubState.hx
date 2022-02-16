@@ -67,15 +67,21 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		
 		
 		var option:Option = new Option('Screen Resolution',
-			"Size of the window (Changes will apply once leaving)",
+			"Size of the window.",
 			'screenRes',
 			'string',
-			'1280 x 720', ['1280 x 720',
+			'1280 x 720', ['640 x 360', 
+			'640 x 480', 
+			'845 x 480', 
+			'960 x 540', 
+			'1280 x 720',
 			'1280 x 960',
+			'1600 x 900',
+			'1600 x 1200',
 			'FULLSCREEN'
 			]);
 		addOption(option);
-		//option.onChange = onChangeRes;
+		option.onChange = onChangeRes;
 		#end
 
 		/*

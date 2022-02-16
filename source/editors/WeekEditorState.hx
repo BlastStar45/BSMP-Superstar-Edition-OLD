@@ -55,22 +55,24 @@ class WeekEditorState extends MusicBeatState
 	}
 
 	override function create() {
+		var scoreText:FlxText = new FlxText(50, 50, 0, "Note: Week characters don't work, background has to be 1280x720", 36);
+		scoreText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+		
 		txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
 		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
 		txtWeekTitle.alpha = 0.7;
 		
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
-		var bgYellow:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 386, 0xFFF9CF51);
-		bgSprite = new FlxSprite(0, 56);
+		bgSprite = new FlxSprite(0, 0);
+		bgSprite.scale.x = 1.2;
+		bgSprite.scale.y = 1.2;
 		bgSprite.antialiasing = ClientPrefs.globalAntialiasing;
+		add(bgSprite);
 
 		weekThing = new MenuItem(0, bgSprite.y + 396, weekFileName);
 		weekThing.y += weekThing.height + 20;
 		weekThing.antialiasing = ClientPrefs.globalAntialiasing;
 		add(weekThing);
-
-		var blackBarThingie:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 56, FlxColor.BLACK);
-		add(blackBarThingie);
 		
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
 		
@@ -95,9 +97,7 @@ class WeekEditorState extends MusicBeatState
 			grpWeekCharacters.add(weekCharacterThing);
 		}
 
-		add(bgYellow);
-		add(bgSprite);
-		add(grpWeekCharacters);
+		//add(grpWeekCharacters);
 
 		var tracksSprite:FlxSprite = new FlxSprite(FlxG.width * 0.07, bgSprite.y + 435).loadGraphic(Paths.image('Menu_Tracks'));
 		tracksSprite.antialiasing = ClientPrefs.globalAntialiasing;
@@ -108,6 +108,7 @@ class WeekEditorState extends MusicBeatState
 		txtTracklist.font = Paths.font("vcr.ttf");
 		txtTracklist.color = 0xFFe55777;
 		add(txtTracklist);
+		add(scoreText);
 		add(txtWeekTitle);
 
 		addEditorBox();
